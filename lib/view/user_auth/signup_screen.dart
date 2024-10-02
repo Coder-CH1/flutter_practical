@@ -171,7 +171,7 @@ class _FormFieldState extends State<FormField> {
                 inputType: TextInputType.text, onPressed: () {  },
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -200,7 +200,7 @@ class _FormFieldState extends State<FormField> {
                 inputType: TextInputType.phone, onPressed: () {  },
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -229,7 +229,7 @@ class _FormFieldState extends State<FormField> {
                 inputType: TextInputType.emailAddress, onPressed: () {  },
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Align(
                 alignment: Alignment.centerLeft,
@@ -264,7 +264,7 @@ class _FormFieldState extends State<FormField> {
                 keyboardType: TextInputType.datetime,
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Align(
                 alignment: Alignment.centerLeft,
