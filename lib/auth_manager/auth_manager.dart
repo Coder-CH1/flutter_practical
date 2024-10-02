@@ -1,0 +1,45 @@
+import 'dart:convert';
+import 'package:assessment/auth_manager/auth_constant.dart';
+import 'package:assessment/auth_manager/model.dart';
+import 'package:http/http.dart' as http;
+
+class AuthManager {
+  late final http.Client client;
+
+  AuthManager(this.client);
+
+  Future<Welcome> login(String email, String password) async{
+    final response = await client.post(
+      Uri.parse('${ApiConstant.baseUrl}auth/login'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'email': email, 'password': password}),
+    );
+
+    if (response.statusCode == 200) {
+      return Welcome.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to login ${response.body}');
+    }
+  }
+
+  Future<Welcome> signup(String firstName, String lastName, String phoneNumber, String email, String password, String dob) async {
+    final response = await client.post(
+      Uri.parse('${ApiConstant.baseUrl}auth/signup'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'firstName': firstName,
+        'lastNmame': lastName,
+        'phoneNumber': phoneNumber,
+        'email': email,
+        'password': password,
+        'dob': dob,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      return Welcome.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to signup ${response.body}');
+    }
+  }
+}

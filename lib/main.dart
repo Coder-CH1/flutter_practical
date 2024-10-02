@@ -1,9 +1,4 @@
-
-import 'package:assessment/user_auth/login_screen.dart';
 import 'package:assessment/user_auth/signup_screen.dart';
-import 'package:assessment/user_vehicle/add_vehicle_screen.dart';
-import 'package:assessment/user_vehicle/single_vehicle_details_screen.dart';
-import 'package:assessment/user_vehicle/vehicle_list_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DetailsScreen(),
+      home: SignupScreen(),
     );
   }
 }
