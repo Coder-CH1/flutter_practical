@@ -99,6 +99,7 @@ class _FormFieldState extends State<FormField> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signing failed $e')));
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
