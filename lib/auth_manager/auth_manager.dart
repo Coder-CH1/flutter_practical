@@ -12,7 +12,7 @@ class AuthManager {
   //LOGIN
   Future<Welcome> login(String email, String password) async{
     final response = await client.post(
-      Uri.parse('${ApiConstant.baseUrl}auth/login'),
+      Uri.parse('${ApiConstant.baseUrl}user/login'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'email': email, 'password': password}),
     );
@@ -27,7 +27,7 @@ class AuthManager {
   //SIGNUP
   Future<Welcome> signup(String firstName, String lastName, String phoneNumber, String email, String password, String dob) async {
     final response = await client.post(
-      Uri.parse('${ApiConstant.baseUrl}auth/signup'),
+      Uri.parse('${ApiConstant.baseUrl}user/register'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'firstName': firstName,
