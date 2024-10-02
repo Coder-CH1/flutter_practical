@@ -64,6 +64,14 @@ class SegmentedControlScreen extends StatefulWidget {
 class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
+
+  void _onSegmentTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    _pageController.jumpToPage(index);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -108,9 +116,7 @@ class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
       children: [
         InkWell(
           onTap: () {
-            setState(() {
-              _selectedIndex = index;
-            });
+            _onSegmentTap(index);
           },
           child: Container(
             margin: const EdgeInsets.only(right: 16),
@@ -139,7 +145,11 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center();
+    return const Column(
+      children: [
+        Text('chi')
+      ],
+    );
   }
 }
 
@@ -148,7 +158,11 @@ class TripsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center();
+    return const Column(
+      children: [
+        Text('hi')
+      ],
+    );
   }
 }
 
@@ -157,6 +171,10 @@ class InsuranceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center();
+    return const Column(
+      children: [
+        Text('ci')
+      ],
+    );
   }
 }

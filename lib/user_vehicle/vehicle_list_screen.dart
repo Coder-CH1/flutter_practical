@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../reusable_widgets/button.dart';
 import '../reusable_widgets/text.dart';
 
 class VehicleListScreen extends StatefulWidget {
@@ -54,6 +55,14 @@ class SegmentedControlScreen extends StatefulWidget {
 class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
+
+  void _onSegmentTap(int index) {
+     setState(() {
+       _selectedIndex = index;
+     });
+     _pageController.jumpToPage(index);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -97,9 +106,7 @@ class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
       children: [
         InkWell(
           onTap: () {
-            setState(() {
-              _selectedIndex = index;
-            });
+            _onSegmentTap(index);
           },
           child: Container(
             margin: const EdgeInsets.only(right: 16),
@@ -128,7 +135,32 @@ class VehiclesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center();
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: CustomText(text: 'Vehicles', style: const TextStyle(
+              fontSize: 16,
+              color: Color(0xFF032B44),
+              fontWeight: FontWeight.w400,
+            ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40,
+          width: 400,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+            child: CustomButton(
+              buttonText: 'ADD VEHICLE', onPressed: () {  }, color: const Color(0xFF032B44), borderRadius: 5.0,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 
@@ -137,7 +169,32 @@ class PassengersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center();
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: CustomText(text: 'Passengers', style: const TextStyle(
+              fontSize: 16,
+              color: Color(0xFF032B44),
+              fontWeight: FontWeight.w400,
+            ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 40,
+          width: 400,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+            child: CustomButton(
+              buttonText: 'ADD VEHICLE', onPressed: () {  }, color: const Color(0xFF032B44), borderRadius: 5.0,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 
