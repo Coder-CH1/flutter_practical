@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//Custom Button
+//CUSTOM BUTTONS
 class ImageTextButton extends StatelessWidget {
   final String buttonText;
   final TextStyle? textColor;

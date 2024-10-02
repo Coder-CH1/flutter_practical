@@ -4,6 +4,7 @@ import '../reusable_widgets/button.dart';
 import '../reusable_widgets/text.dart';
 import '../reusable_widgets/textformfield.dart';
 
+//MAIN SIGN UP
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -24,6 +25,7 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 }
 
+//FORM FIELD
 class FormField extends StatefulWidget {
   const FormField({super.key});
 

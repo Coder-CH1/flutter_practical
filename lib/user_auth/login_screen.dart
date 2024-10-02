@@ -4,6 +4,7 @@ import 'package:assessment/reusable_widgets/text.dart';
 
 import '../reusable_widgets/button.dart';
 
+//MAIN LOGIN
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -24,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
+//FORM FIELD
 class FormField extends StatefulWidget {
   const FormField({super.key});
 

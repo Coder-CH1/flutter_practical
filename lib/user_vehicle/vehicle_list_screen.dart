@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../reusable_widgets/button.dart';
 import '../reusable_widgets/text.dart';
 
+//MAIN VEHICLE LIST
 class VehicleListScreen extends StatefulWidget {
   const VehicleListScreen({super.key});
 
@@ -44,7 +45,7 @@ class _VehicleListScreenState extends State<VehicleListScreen> {
   }
 }
 
-
+//SEGMENTED CONTROL LOGIC
 class SegmentedControlScreen extends StatefulWidget {
   const SegmentedControlScreen({super.key});
 
@@ -130,6 +131,7 @@ class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
   }
 }
 
+//SEGMENT FOR VEHICLES
 class VehiclesScreen extends StatelessWidget {
   const VehiclesScreen({super.key});
 
@@ -164,6 +166,7 @@ class VehiclesScreen extends StatelessWidget {
   }
 }
 
+//SEGMENT FOR PASSENGERS
 class PassengersScreen extends StatelessWidget {
   const PassengersScreen({super.key});
 

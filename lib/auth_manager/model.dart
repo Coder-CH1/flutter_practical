@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+//DECODED MODEL
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 
 String welcomeToJson(Welcome data) => json.encode(data.toJson());
