@@ -1,5 +1,6 @@
 
 import 'package:assessment/user_vehicle/single_vehicle_details_screen.dart';
+import 'package:assessment/user_vehicle/vehicle_list_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DetailsScreen(),
+      home: VehicleListScreen(),
     );
   }
 }
