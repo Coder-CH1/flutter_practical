@@ -1,11 +1,11 @@
 import 'package:assessment/auth_manager/auth_manager.dart';
+import 'package:assessment/view/user_auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/text.dart';
 import '../../reusable_widgets/textformfield.dart';
-import '../user_vehicle/add_vehicle_screen.dart';
 
 //MAIN SIGN UP
 class SignupScreen extends StatefulWidget {
@@ -94,7 +94,7 @@ class _FormFieldState extends State<FormField> {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signing successfull'),
       ),
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AddVehicleScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen()));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signing failed $e')));
     }
