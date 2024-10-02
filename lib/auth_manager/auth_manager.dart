@@ -31,7 +31,7 @@ class AuthManager {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'firstName': firstName,
-        'lastNmame': lastName,
+        'lastName': lastName,
         'phoneNumber': phoneNumber,
         'email': email,
         'password': password,
