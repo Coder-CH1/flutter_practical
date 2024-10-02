@@ -1,8 +1,11 @@
+import 'package:assessment/auth_manager/auth_manager.dart';
+import 'package:assessment/user_vehicle/add_vehicle_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../reusable_widgets/button.dart';
 import '../reusable_widgets/text.dart';
 import '../reusable_widgets/textformfield.dart';
+import 'package:http/http.dart' as http;
 
 //MAIN SIGN UP
 class SignupScreen extends StatefulWidget {
@@ -34,6 +37,12 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   bool isSelected = false;
   DateTime? _selectedDate;
   late bool _obscureText = true;
@@ -49,6 +58,27 @@ class _FormFieldState extends State<FormField> {
       setState(() {
         _selectedDate = picked;
       });
+    }
+  }
+
+  Future<void> _signup(BuildContext context) async {
+    final authManager = AuthManager(http.Client());
+
+    try {
+      authManager.signup(
+          _firstNameController.text,
+          _lastNameController.text,
+          _phoneController.text,
+          _emailController.text,
+          _passwordController.text,
+          DateFormat('yyyy-MM-dd').format(_selectedDate!)
+      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signing successfull'),
+      ),
+      );
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AddVehicleScreen()));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signing failed $e')));
     }
   }
   @override
@@ -271,7 +301,7 @@ class _FormFieldState extends State<FormField> {
                 width: 400,
                 child: CustomButton(
                   buttonText: 'SIGN UP',
-                  onPressed: () {  },
+                  onPressed: () => _signup(context),
                   color: isSelected ? const Color(0xFF001F44) : Colors.grey.shade800,
                   borderRadius: 5.0,
                 ),
