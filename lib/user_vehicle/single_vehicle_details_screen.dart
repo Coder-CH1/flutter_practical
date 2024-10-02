@@ -89,7 +89,6 @@ class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
             )
           ],
         );
-    //);
   }
   Widget _buildCustomSegmentedControl() {
     return Padding(

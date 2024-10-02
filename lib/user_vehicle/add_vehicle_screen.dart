@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../reusable_widgets/text.dart';
 import '../reusable_widgets/textformfield.dart';
 
@@ -40,127 +39,7 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Form(
-                      child: Column(
-                       children: [
-                         Align(
-                           alignment: Alignment.centerLeft,
-                           child: CustomText(text:'Last Name',
-                             style: const TextStyle(
-                                 fontSize: 14,
-                                 fontWeight: FontWeight.w400,
-                                 color: Color(0xFF2F4F4F)
-                             ),
-                           ),
-                         ),
-                         const SizedBox(
-                           height: 5,
-                         ),
-                         const CustomTextField(
-                           hintText: '',
-                           labelText: '',
-                         ),
-                         const SizedBox(
-                           height: 20,
-                         ),
-                         Align(
-                           alignment: Alignment.centerLeft,
-                           child: CustomText(text:'Last Name',
-                             style: const TextStyle(
-                                 fontSize: 14,
-                                 fontWeight: FontWeight.w400,
-                                 color: Color(0xFF2F4F4F)
-                             ),
-                           ),
-                         ),
-                         const SizedBox(
-                           height: 5,
-                         ),
-                         const CustomTextField(
-                           hintText: '',
-                           labelText: '',
-                         ),
-                         const SizedBox(
-                           height: 20,
-                         ),
-                         Align(
-                           alignment: Alignment.centerLeft,
-                           child: CustomText(text:'Last Name',
-                             style: const TextStyle(
-                                 fontSize: 14,
-                                 fontWeight: FontWeight.w400,
-                                 color: Color(0xFF2F4F4F)
-                             ),
-                           ),
-                         ),
-                         const SizedBox(
-                           height: 5,
-                         ),
-                         const CustomTextField(
-                           hintText: '',
-                           labelText: '',
-                         ),
-                         const SizedBox(
-                           height: 20,
-                         ),
-                         Align(
-                           alignment: Alignment.centerLeft,
-                           child: CustomText(text:'Last Name',
-                             style: const TextStyle(
-                                 fontSize: 14,
-                                 fontWeight: FontWeight.w400,
-                                 color: Color(0xFF2F4F4F)
-                             ),
-                           ),
-                         ),
-                         const SizedBox(
-                           height: 5,
-                         ),
-                         const CustomTextField(
-                           hintText: '',
-                           labelText: '',
-                         ),
-                         const SizedBox(
-                           height: 20,
-                         ),
-                         Align(
-                           alignment: Alignment.centerLeft,
-                           child: CustomText(text:'Last Name',
-                             style: const TextStyle(
-                                 fontSize: 14,
-                                 fontWeight: FontWeight.w400,
-                                 color: Color(0xFF2F4F4F)
-                             ),
-                           ),
-                         ),
-                         const SizedBox(
-                           height: 5,
-                         ),
-                         const CustomTextField(
-                           hintText: '',
-                           labelText: '',
-                         ),
-                         const SizedBox(
-                           height: 20,
-                         ),
-                         Align(
-                           alignment: Alignment.centerLeft,
-                           child: CustomText(text:'Last Name',
-                             style: const TextStyle(
-                                 fontSize: 14,
-                                 fontWeight: FontWeight.w400,
-                                 color: Color(0xFF2F4F4F)
-                             ),
-                           ),
-                         ),
-                         const SizedBox(
-                           height: 5,
-                         ),
-                         const CustomTextField(
-                           hintText: '',
-                           labelText: '',
-                         ),
-                       ],
-                      )
+                      child: FormField(),
                   ),
                 ),
               ),
@@ -168,6 +47,140 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
           )
         ],
       )
+    );
+  }
+}
+
+class FormField extends StatefulWidget {
+  const FormField({Key? key}) : super(key: key);
+
+  @override
+  State<FormField> createState() => _FormFieldState();
+}
+
+class _FormFieldState extends State<FormField> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomText(text:'Last Name',
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF2F4F4F)
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const CustomTextField(
+          hintText: '',
+          labelText: '',
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomText(text:'Last Name',
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF2F4F4F)
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const CustomTextField(
+          hintText: '',
+          labelText: '',
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomText(text:'Last Name',
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF2F4F4F)
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const CustomTextField(
+          hintText: '',
+          labelText: '',
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomText(text:'Last Name',
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF2F4F4F)
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const CustomTextField(
+          hintText: '',
+          labelText: '',
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomText(text:'Last Name',
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF2F4F4F)
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const CustomTextField(
+          hintText: '',
+          labelText: '',
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomText(text:'Last Name',
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF2F4F4F)
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        const CustomTextField(
+          hintText: '',
+          labelText: '',
+        ),
+      ],
     );
   }
 }
