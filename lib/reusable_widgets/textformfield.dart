@@ -10,6 +10,9 @@ class CustomTextField extends StatelessWidget {
   final IconButton? suffixIcon;
   final IconData? icon;
   final VoidCallback onPressed;
+  final Color? labelTextColor;
+  final List<DropdownMenuItem>? items;
+  final Function? onChanged;
   const CustomTextField({
     super.key, this.labelText,
     this.hintText,
@@ -19,6 +22,9 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.icon,
     required this.onPressed,
+    this.labelTextColor,
+    this.items,
+    this.onChanged
   });
 
   @override
@@ -30,6 +36,9 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
+        labelStyle: TextStyle(
+          color: labelTextColor,
+        ),
         prefixIcon: icon != null ? Icon(icon) : null,
           suffixIcon: suffixIcon,
         border: OutlineInputBorder(

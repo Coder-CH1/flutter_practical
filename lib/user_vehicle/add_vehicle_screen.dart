@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../reusable_widgets/dropdown_textfield.dart';
 import '../reusable_widgets/text.dart';
 import '../reusable_widgets/textformfield.dart';
 
@@ -57,6 +58,8 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
+  String? vehicle;
+  String? year;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -75,9 +78,16 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 5,
           ),
-          CustomTextField(
+          AppDropdownInput(
             hintText: '',
-            labelText: '', onPressed: () {  },
+            options: const ['benz', 'bmw', 'corrola'],
+            value: vehicle,
+            onChanged: (String? value) {
+              setState(() {
+                vehicle = value;
+              });
+            },
+            getLabel: (String value) => value,
           ),
           const SizedBox(
             height: 20,
@@ -99,6 +109,7 @@ class _FormFieldState extends State<FormField> {
             hintText: '',
             labelText: 'e.g. Benz AL340',
             onPressed: () {  },
+           labelTextColor: Colors.grey.shade300,
           ),
           const SizedBox(
             height: 20,
@@ -118,7 +129,9 @@ class _FormFieldState extends State<FormField> {
           ),
           CustomTextField(
             hintText: '',
-            labelText: '', onPressed: () {  },
+            labelText: 'e.g. AL340',
+            onPressed: () {  },
+            labelTextColor: Colors.grey.shade300,
           ),
           const SizedBox(
             height: 20,
@@ -138,7 +151,9 @@ class _FormFieldState extends State<FormField> {
           ),
           CustomTextField(
             hintText: '',
-            labelText: '', onPressed: () {  },
+            labelText: 'e.g. black',
+            onPressed: () {  },
+              labelTextColor: Colors.grey.shade300
           ),
           const SizedBox(
             height: 20,
@@ -156,9 +171,16 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 5,
           ),
-          CustomTextField(
+          AppDropdownInput(
             hintText: '',
-            labelText: '', onPressed: () {  },
+            options: const ['2022', '2023', '2024'],
+            value: year,
+            onChanged: (String? value) {
+              setState(() {
+                year = value;
+              });
+            },
+            getLabel: (String value) => value,
           ),
           const SizedBox(
             height: 20,
