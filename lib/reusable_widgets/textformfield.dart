@@ -13,6 +13,8 @@ class CustomTextField extends StatelessWidget {
   final Color? labelTextColor;
   final List<DropdownMenuItem>? items;
   final Function? onChanged;
+  final FormFieldValidator<String>? validator;
+  final FormFieldSetter<String>? onSaved;
   const CustomTextField({
     super.key, this.labelText,
     this.hintText,
@@ -24,7 +26,9 @@ class CustomTextField extends StatelessWidget {
     required this.onPressed,
     this.labelTextColor,
     this.items,
-    this.onChanged
+    this.onChanged,
+    this.validator,
+    this.onSaved
   });
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../reusable_widgets/button.dart';
-import '../reusable_widgets/text.dart';
+import '../../reusable_widgets/button.dart';
+import '../../reusable_widgets/text.dart';
 
 //MAIN VEHICLE LIST
 class VehicleListScreen extends StatefulWidget {

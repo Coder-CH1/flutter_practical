@@ -1,11 +1,11 @@
 import 'package:assessment/auth_manager/auth_manager.dart';
-import 'package:assessment/user_vehicle/add_vehicle_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../reusable_widgets/button.dart';
-import '../reusable_widgets/text.dart';
-import '../reusable_widgets/textformfield.dart';
 import 'package:http/http.dart' as http;
+import '../../reusable_widgets/button.dart';
+import '../../reusable_widgets/text.dart';
+import '../../reusable_widgets/textformfield.dart';
+import '../user_vehicle/add_vehicle_screen.dart';
 
 //MAIN SIGN UP
 class SignupScreen extends StatefulWidget {
@@ -37,12 +37,14 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  String errorMessage = '';
   bool isSelected = false;
   DateTime? _selectedDate;
   late bool _obscureText = true;
@@ -62,15 +64,31 @@ class _FormFieldState extends State<FormField> {
   }
 
   Future<void> _signup(BuildContext context) async {
+    if (_form.currentState!.validate()) {
+      setState(() {
+        errorMessage = 'Fill all fields properly';
+      });
+    }
+    final first = _firstNameController.text.trim();
+    final last = _lastNameController.text.trim();
+    final email = _emailController.text.trim();
+    final pass =  _passwordController.text.trim();
+    final phone = _phoneController.text.trim();
+    if (last.isEmpty || first.isEmpty || email.isEmpty || pass.isEmpty || phone.isEmpty) {
+      setState(() {
+        errorMessage = 'All field are required';
+      });
+      return;
+    }
     final authManager = AuthManager(http.Client());
 
     try {
       authManager.signup(
-          _firstNameController.text,
-          _lastNameController.text,
-          _phoneController.text,
-          _emailController.text,
-          _passwordController.text,
+          first,
+          last,
+          email,
+          pass,
+          phone,
           DateFormat('yyyy-MM-dd').format(_selectedDate!)
       );
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signing successfull'),
@@ -86,6 +104,7 @@ class _FormFieldState extends State<FormField> {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Form(
+        key: _form,
         child: Padding(
           padding: const EdgeInsets.only(left: 12.0, right: 12.0),
           child: Column(
@@ -110,6 +129,14 @@ class _FormFieldState extends State<FormField> {
                 height: 5,
               ),
               CustomTextField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'First Name is required';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _firstNameController.text = value!,
+                controller: _firstNameController,
                 hintText: '',
                 labelText: '',
                 inputType: TextInputType.text, onPressed: () {  },
@@ -131,6 +158,14 @@ class _FormFieldState extends State<FormField> {
                 height: 5,
               ),
               CustomTextField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Last Name is required';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _firstNameController.text = value!,
+                controller: _lastNameController,
                 hintText: '',
                 labelText: '',
                 inputType: TextInputType.text, onPressed: () {  },
@@ -152,6 +187,14 @@ class _FormFieldState extends State<FormField> {
                 height: 5,
               ),
               CustomTextField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Phone number is required';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _firstNameController.text = value!,
+                controller: _phoneController,
                 hintText: '',
                 labelText: '',
                 inputType: TextInputType.phone, onPressed: () {  },
@@ -173,6 +216,14 @@ class _FormFieldState extends State<FormField> {
                 height: 5,
               ),
               CustomTextField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Email address is required';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _firstNameController.text = value!,
+                controller: _emailController,
                 hintText: '',
                 labelText: '',
                 inputType: TextInputType.emailAddress, onPressed: () {  },
@@ -229,6 +280,14 @@ class _FormFieldState extends State<FormField> {
                 height: 5,
               ),
               CustomTextField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Password is required';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _firstNameController.text = value!,
+                controller: _passwordController,
                 hintText: '',
                 labelText: '',
                 obscureText: _obscureText, onPressed: () {  },

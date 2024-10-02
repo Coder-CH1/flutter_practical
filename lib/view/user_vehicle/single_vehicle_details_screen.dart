@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../reusable_widgets/text.dart';
+import '../../reusable_widgets/text.dart';
 
 //MAIN SINGLE VEHICLE DETAIL
 class SingleVehicleDetailsScreen extends StatefulWidget {

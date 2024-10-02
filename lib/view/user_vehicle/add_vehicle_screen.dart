@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../reusable_widgets/dropdown_textfield.dart';
-import '../reusable_widgets/text.dart';
-import '../reusable_widgets/textformfield.dart';
+import '../../reusable_widgets/dropdown_textfield.dart';
+import '../../reusable_widgets/text.dart';
+import '../../reusable_widgets/textformfield.dart';
 
 //MAIN ADD VEHICLE
 class AddVehicleScreen extends StatefulWidget {

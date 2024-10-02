@@ -1,8 +1,10 @@
 import 'package:assessment/reusable_widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:assessment/reusable_widgets/text.dart';
-
-import '../reusable_widgets/button.dart';
+import 'package:http/http.dart' as http;
+import '../../auth_manager/auth_manager.dart';
+import '../../reusable_widgets/button.dart';
+import '../user_vehicle/add_vehicle_screen.dart';
 
 //MAIN LOGIN
 class LoginScreen extends StatefulWidget {
@@ -34,10 +36,46 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   late bool _obscureText = true;
+  String errorMessage = '';
+
+  void _login(BuildContext context) async {
+    if (_form.currentState!.validate()) {
+      setState(() {
+        errorMessage = 'Fill all fields properly';
+      });
+    }
+    final email = _emailController.text.trim();
+    final pass =  _passwordController.text.trim();
+    if (email.isEmpty || pass.isEmpty) {
+      setState(() {
+        errorMessage = 'All field are required';
+      });
+      return;
+    }
+
+    final authManager = AuthManager(http.Client());
+
+    try {
+      authManager.login(
+          email,
+          pass,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Log in successfull'),
+      ),
+      );
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AddVehicleScreen()));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signing failed $e')));
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _form,
       child: Column(
         children: [
           Align(
@@ -136,6 +174,14 @@ class _FormFieldState extends State<FormField> {
                   ),
                 ),
                 CustomTextField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Email address is required';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _emailController.text = value!,
+                  controller: _emailController,
                   hintText: '',
                   labelText: '', onPressed: () { },
                 ),
@@ -153,6 +199,14 @@ class _FormFieldState extends State<FormField> {
                   ),
                 ),
                 CustomTextField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Password is required';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _passwordController.text = value!,
+                  controller: _passwordController,
                   hintText: '',
                   labelText: '',
                   obscureText: _obscureText, onPressed: () {  },
@@ -184,7 +238,7 @@ class _FormFieldState extends State<FormField> {
                   height: 40,
                   width: 400,
                   child: CustomButton(
-                    buttonText: 'LOG IN', onPressed: () {  }, color: const Color(0xFF032B44), borderRadius: 5.0,
+                    buttonText: 'LOG IN', onPressed: () => _login(context), color: const Color(0xFF032B44), borderRadius: 5.0,
                   ),
                 ),
                 const SizedBox(
