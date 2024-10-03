@@ -7,6 +7,7 @@
 - Vehicle List Screen 
 - Vehicle Details Screen 
 - Add New Vehicle Screen 
+- Bloc state management 
 
 # Dependencies -
 
