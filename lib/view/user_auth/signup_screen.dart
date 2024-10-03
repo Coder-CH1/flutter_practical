@@ -49,6 +49,15 @@ class _FormFieldState extends State<FormField> {
   DateTime? _selectedDate;
   late bool _obscureText = true;
 
+  void dispose() {
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _phoneController.dispose();
+    _passwordController.dispose();
+    _emailController.dispose();
+    super.dispose();
+  }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,

@@ -42,6 +42,12 @@ class _FormFieldState extends State<FormField> {
   late bool _obscureText = true;
   String errorMessage = '';
 
+  void dispose() {
+    _passwordController.dispose();
+    _emailController.dispose();
+    super.dispose();
+  }
+
   void _login(BuildContext context) async {
     if (_form.currentState!.validate()) {
       setState(() {
