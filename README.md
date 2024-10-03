@@ -1,4 +1,4 @@
- - Built with Flutter providing a user authentication for Signup, Login and other additional screens features.
+ - Built with Flutter providing a user authentication for Signup, Login, other additional screens features and implemented Bloc state management.
 
 # Features: 
  
@@ -12,5 +12,5 @@
 # Dependencies:
 
 - http
-- dropdown_textfiel
+- dropdown_textfield
 - bloc
