@@ -1,6 +1,6 @@
  - Built with Flutter providing a user authentication for Signup, Login and other additional screens.
 
-# Features - 
+# Features: 
  
 - User Signup
 - User Login
@@ -9,7 +9,7 @@
 - Add New Vehicle Screen 
 - Bloc state management 
 
-# Dependencies -
+# Dependencies:
 
 - http
 - dropdown_textfiel
