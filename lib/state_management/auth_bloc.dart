@@ -8,7 +8,7 @@ class AuthBloc extends Bloc<AuthEvent, Welcome?> {
   final AuthManager authManager;
 
   AuthBloc(this.authManager) : super(null) {
-    on<FetchUser>((event, emit) async {
+    on<FetchSignupUser>((event, emit) async {
       try {
         final user = await authManager.signup(
             event.firstName, event.lastName, event.email, event.password, event.phoneNumber, event.dob);
@@ -18,7 +18,7 @@ class AuthBloc extends Bloc<AuthEvent, Welcome?> {
       }
     });
 
-    on<FetchUser>((event, emit) async {
+    on<FetchLoginUser>((event, emit) async {
     try {
       final user = await authManager.login(
           event.email, event.password);

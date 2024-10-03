@@ -1,8 +1,9 @@
-import 'package:assessment/auth_manager/auth_manager.dart';
+import 'package:assessment/state_management/auth_bloc.dart';
+import 'package:assessment/state_management/auth_event.dart';
 import 'package:assessment/view/user_auth/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/text.dart';
 import '../../reusable_widgets/textformfield.dart';
@@ -37,18 +38,19 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
+
+//DECLARING AND INITIALIZING VARIABLES
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  String errorMessage = '';
   bool isSelected = false;
   DateTime? _selectedDate;
   late bool _obscureText = true;
 
+  @override
   void dispose() {
     _firstNameController.dispose();
     _lastNameController.dispose();
@@ -58,6 +60,7 @@ class _FormFieldState extends State<FormField> {
     super.dispose();
   }
 
+//METHOD FOR SELECTING DATE/DATEPICKER
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -72,34 +75,30 @@ class _FormFieldState extends State<FormField> {
     }
   }
 
+//METHOD FOR SIGNING UP USER
   Future<void> _signup(BuildContext context) async {
     if (_form.currentState!.validate()) {
-      setState(() {
-        errorMessage = 'Fill all fields properly';
-      });
+     return; //RETURNS IF VALIDATION FAILS
     }
+//METHOD FOR CHECKING SPACE
     final first = _firstNameController.text.trim();
     final last = _lastNameController.text.trim();
     final email = _emailController.text.trim();
     final pass =  _passwordController.text.trim();
     final phone = _phoneController.text.trim();
     if (last.isEmpty || first.isEmpty || email.isEmpty || pass.isEmpty || phone.isEmpty) {
-      setState(() {
-        errorMessage = 'All field are required';
-      });
       return;
     }
-    final authManager = AuthManager(http.Client());
 
-    try {
-      authManager.signup(
-          first,
-          last,
-          email,
-          pass,
-          phone,
-          DateFormat('yyyy-MM-dd').format(_selectedDate!)
-      );
+  try {
+   context.read<AuthBloc>().add(FetchSignupUser(
+       first,
+       last,
+       email,
+       pass,
+       phone,
+       DateFormat('yyyy-MM-dd').format(_selectedDate!),
+   ));
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signing successfull'),
       ),
       );

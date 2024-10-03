@@ -1,7 +1,7 @@
 //BLOC STATE MANAGEMENT EVENT
 abstract class AuthEvent{}
 
-class FetchUser extends AuthEvent {
+class FetchSignupUser extends AuthEvent {
   final String firstName;
   final String lastName;
   final String email;
@@ -9,7 +9,14 @@ class FetchUser extends AuthEvent {
   final String phoneNumber;
   final String dob;
 
-  FetchUser(this.firstName, this.lastName, this.email, this.password, this.phoneNumber, this.dob);
+  FetchSignupUser(this.firstName, this.lastName, this.email, this.password, this.phoneNumber, this.dob);
+}
+
+class FetchLoginUser extends AuthEvent {
+  final String email;
+  final String password;
+
+  FetchLoginUser(this.email, this.password);
 }
 
 class LoadSavedWeather extends AuthEvent {}

@@ -1,8 +1,9 @@
 import 'package:assessment/reusable_widgets/textformfield.dart';
+import 'package:assessment/state_management/auth_bloc.dart';
+import 'package:assessment/state_management/auth_event.dart';
 import 'package:flutter/material.dart';
 import 'package:assessment/reusable_widgets/text.dart';
-import 'package:http/http.dart' as http;
-import '../../auth_manager/auth_manager.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../reusable_widgets/button.dart';
 import '../user_vehicle/add_vehicle_screen.dart';
 
@@ -36,40 +37,36 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
+//DECLARING AND INITIALIZING VARIABLES
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   late bool _obscureText = true;
-  String errorMessage = '';
 
+  @override
   void dispose() {
     _passwordController.dispose();
     _emailController.dispose();
     super.dispose();
   }
 
+//METHOD FOR LOGGING USER
   void _login(BuildContext context) async {
     if (_form.currentState!.validate()) {
-      setState(() {
-        errorMessage = 'Fill all fields properly';
-      });
+      return;//RETURNS IF VALIDATION FAILS
     }
+
+//METHOD FOR CHECKING SPACE
     final email = _emailController.text.trim();
     final pass =  _passwordController.text.trim();
     if (email.isEmpty || pass.isEmpty) {
-      setState(() {
-        errorMessage = 'All field are required';
-      });
       return;
     }
 
-    final authManager = AuthManager(http.Client());
-
     try {
-      authManager.login(
-          email,
-          pass,
-      );
+  context.read<AuthBloc>().add(FetchLoginUser(
+    email,
+    pass));
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Log in successfull'),
       ),
       );
@@ -78,6 +75,7 @@ class _FormFieldState extends State<FormField> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signing failed $e')));
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
