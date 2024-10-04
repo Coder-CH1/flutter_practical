@@ -25,7 +25,7 @@ class _SingleVehicleDetailsScreenState extends State<SingleVehicleDetailsScreen>
               padding: const EdgeInsets.all(15.0),
               child: Row(
                 children: [
-                  CustomText(text: 'Toyota', style: const TextStyle(
+                  const CustomText(text: 'Toyota', style: TextStyle(
                     fontSize: 20,
                     color: Color(0xFF032B44),
                     fontWeight: FontWeight.w500,
@@ -150,7 +150,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text('chi')
+        Text('Details')
       ],
     );
   }
@@ -164,7 +164,7 @@ class TripsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text('hi')
+        Text('Trips')
       ],
     );
   }
@@ -178,7 +178,7 @@ class InsuranceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text('ci')
+        Text('Insurance')
       ],
     );
   }

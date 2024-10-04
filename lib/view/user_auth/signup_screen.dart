@@ -91,6 +91,7 @@ class _FormFieldState extends State<FormField> {
     }
 
   try {
+//DISPATCHES THE SIGNUP EVENT
    context.read<AuthBloc>().add(FetchSignupUser(
        first,
        last,
@@ -118,16 +119,16 @@ class _FormFieldState extends State<FormField> {
           padding: const EdgeInsets.only(left: 12.0, right: 12.0),
           child: Column(
             children: [
-              CustomText(text: 'SIGN UP WITH EMAIL', style: const TextStyle(
+              const CustomText(text: 'SIGN UP WITH EMAIL', style: TextStyle(
                 fontSize: 16,
                 color: Color(0xFF001F44),
                 fontWeight: FontWeight.w300,
               ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(text:'First Name',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF2F4F4F)
@@ -153,10 +154,10 @@ class _FormFieldState extends State<FormField> {
               const SizedBox(
                 height: 20,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(text:'Last Name',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF2F4F4F)
@@ -182,10 +183,10 @@ class _FormFieldState extends State<FormField> {
               const SizedBox(
                 height: 15,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(text:'Phone Number',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF2F4F4F)
@@ -211,10 +212,10 @@ class _FormFieldState extends State<FormField> {
               const SizedBox(
                 height: 15,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(text:'Email',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF2F4F4F)
@@ -240,10 +241,10 @@ class _FormFieldState extends State<FormField> {
               const SizedBox(
                 height: 15,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(text:'Date of Birth',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF2F4F4F)
@@ -275,10 +276,10 @@ class _FormFieldState extends State<FormField> {
               const SizedBox(
                 height: 15,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(text:'Password',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFF2F4F4F)
@@ -330,8 +331,8 @@ class _FormFieldState extends State<FormField> {
                       });
                     },
                   ),
-                  CustomText(text:'I agree to the',
-                    style: const TextStyle(
+                  const CustomText(text:'I agree to the',
+                    style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF2F4F4F)
@@ -346,8 +347,8 @@ class _FormFieldState extends State<FormField> {
                     ),
                   ),
                   ),
-                  CustomText(text:'and',
-                    style: const TextStyle(
+                  const CustomText(text:'and',
+                    style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF2F4F4F)
@@ -379,8 +380,8 @@ class _FormFieldState extends State<FormField> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomText(text:'Already have an account?',
-                    style: const TextStyle(
+                  const CustomText(text:'Already have an account?',
+                    style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF2F4F4F)

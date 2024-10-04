@@ -21,11 +21,11 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
       ),
       body: Column(
         children: [
-           Align(
+           const Align(
              alignment: Alignment.centerLeft,
              child: Padding(
-               padding: const EdgeInsets.all(15.0),
-               child: CustomText(text: 'Add Vehicle', style: const TextStyle(
+               padding: EdgeInsets.all(15.0),
+               child: CustomText(text: 'Add Vehicle', style: TextStyle(
                  fontSize: 20,
                  color: Color(0xFF032B44),
                  fontWeight: FontWeight.w500,
@@ -67,10 +67,10 @@ class _FormFieldState extends State<FormField> {
     return Form(
       child: Column(
         children: [
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: CustomText(text:'Type of vehicle',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF2F4F4F)
@@ -94,10 +94,10 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 20,
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: CustomText(text:'Name of vehicle',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF2F4F4F)
@@ -116,10 +116,10 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 20,
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: CustomText(text:'Model',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF2F4F4F)
@@ -138,10 +138,10 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 20,
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: CustomText(text:'Color',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF2F4F4F)
@@ -160,10 +160,10 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 20,
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: CustomText(text:'Year',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF2F4F4F)
@@ -187,10 +187,10 @@ class _FormFieldState extends State<FormField> {
           const SizedBox(
             height: 20,
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
             child: CustomText(text:'Value of vehicle',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF2F4F4F)
