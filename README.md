@@ -1,4 +1,4 @@
- * Built with Flutter providing a user authentication for Signup, Login, other additional screens features and implemented Bloc State Management.
+ * Built with Flutter, providing a user authentication for Signup, Login, other additional screens features and implemented Bloc State Management.
 
 # Features: 
  
