@@ -1,7 +1,8 @@
-#
+# User Authentication -
+
  - Built with Flutter, providing a user authentication for Signup, Login, other additional screens features and implemented Bloc State Management.
 
-## Features: 
+# Features: 
  
 - User Signup
 - User Login
@@ -10,7 +11,7 @@
 - Add New Vehicle Screen 
 - Bloc State Management 
 
-## Dependencies:
+# Dependencies:
 
 - http
 - dropdown_textfield
