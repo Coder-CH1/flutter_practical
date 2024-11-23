@@ -18,15 +18,15 @@ class _VehicleListScreenState extends State<VehicleListScreen> {
         backgroundColor: Colors.white,
         title: Image.asset('assets/images/guliva_header.png'),
       ),
-      body: Column(
+      body: const Column(
         children: [
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0),
               child: Row(
                 children: [
-                  CustomText(text: 'Vehicles/Passengers', style: const TextStyle(
+                  CustomText(text: 'Vehicles/Passengers', style: TextStyle(
                     fontSize: 20,
                     color: Color(0xFF032B44),
                     fontWeight: FontWeight.w500,
@@ -36,7 +36,7 @@ class _VehicleListScreenState extends State<VehicleListScreen> {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: SegmentedControlScreen(),
           ),
         ],
@@ -139,11 +139,11 @@ class VehiclesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: CustomText(text: 'Vehicles', style: const TextStyle(
+            padding: EdgeInsets.all(15.0),
+            child: CustomText(text: 'Vehicles', style: TextStyle(
               fontSize: 16,
               color: Color(0xFF032B44),
               fontWeight: FontWeight.w400,
@@ -174,11 +174,11 @@ class PassengersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: CustomText(text: 'Passengers', style: const TextStyle(
+            padding: EdgeInsets.all(15.0),
+            child: CustomText(text: 'Passengers', style: TextStyle(
               fontSize: 16,
               color: Color(0xFF032B44),
               fontWeight: FontWeight.w400,
