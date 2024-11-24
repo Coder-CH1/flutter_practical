@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//CUSTOM TEXT
+/// CUSTOM TEXT
 class CustomText extends StatelessWidget {
   final String text;
   final TextStyle style;
