@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//CUSTOM TEXTFIELD
+/// CUSTOM TEXTFIELD
 class CustomTextField extends StatelessWidget {
   final String? labelText;
   final String? hintText;

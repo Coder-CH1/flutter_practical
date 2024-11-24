@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../auth_manager/auth_manager.dart';
 import '../auth_manager/model.dart';
 
-//BLOC STATE MANAGEMENT
+/// BLOC STATE MANAGEMENT
 class AuthBloc extends Bloc<AuthEvent, Welcome?> {
   final AuthManager authManager;
 
