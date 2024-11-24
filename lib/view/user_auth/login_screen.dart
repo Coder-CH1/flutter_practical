@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../reusable_widgets/button.dart';
 import '../user_vehicle/add_vehicle_screen.dart';
 
-//MAIN LOGIN
+/// MAIN LOGIN
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-//FORM FIELD
+/// FORM FIELD
 class FormField extends StatefulWidget {
   const FormField({super.key});
 
@@ -37,7 +37,7 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
-//DECLARING AND INITIALIZING VARIABLES
+/// DECLARING AND INITIALIZING VARIABLES
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -50,7 +50,7 @@ class _FormFieldState extends State<FormField> {
     super.dispose();
   }
 
-//METHOD FOR LOGGING USER
+/// METHOD FOR LOGGING USER
   void _login(BuildContext context) async {
     if (_form.currentState!.validate()) {
       return;//RETURNS IF VALIDATION FAILS
