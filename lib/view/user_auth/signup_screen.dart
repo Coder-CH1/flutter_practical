@@ -8,7 +8,7 @@ import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/text.dart';
 import '../../reusable_widgets/textformfield.dart';
 
-//MAIN SIGN UP
+/// MAIN SIGN UP
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -29,7 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 }
 
-//FORM FIELD
+/// FORM FIELD
 class FormField extends StatefulWidget {
   const FormField({super.key});
 
@@ -39,7 +39,7 @@ class FormField extends StatefulWidget {
 
 class _FormFieldState extends State<FormField> {
 
-//DECLARING AND INITIALIZING VARIABLES
+/// DECLARING AND INITIALIZING VARIABLES
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -60,7 +60,7 @@ class _FormFieldState extends State<FormField> {
     super.dispose();
   }
 
-//METHOD FOR SELECTING DATE/DATEPICKER
+/// METHOD FOR SELECTING DATE/DATEPICKER
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -75,12 +75,12 @@ class _FormFieldState extends State<FormField> {
     }
   }
 
-//METHOD FOR SIGNING UP USER
+/// METHOD FOR SIGNING UP USER
   Future<void> _signup(BuildContext context) async {
     if (_form.currentState!.validate()) {
      return; //RETURNS IF VALIDATION FAILS
     }
-//METHOD FOR CHECKING SPACE
+/// METHOD FOR CHECKING SPACE
     final first = _firstNameController.text.trim();
     final last = _lastNameController.text.trim();
     final email = _emailController.text.trim();
@@ -91,7 +91,7 @@ class _FormFieldState extends State<FormField> {
     }
 
   try {
-//DISPATCHES THE SIGNUP EVENT
+/// DISPATCHES THE SIGNUP EVENT
    context.read<AuthBloc>().add(FetchSignupUser(
        first,
        last,

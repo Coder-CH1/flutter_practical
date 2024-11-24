@@ -56,7 +56,7 @@ class _FormFieldState extends State<FormField> {
       return;//RETURNS IF VALIDATION FAILS
     }
 
-//METHOD FOR CHECKING SPACE
+/// METHOD FOR CHECKING SPACE
     final email = _emailController.text.trim();
     final pass =  _passwordController.text.trim();
     if (email.isEmpty || pass.isEmpty) {
@@ -64,7 +64,7 @@ class _FormFieldState extends State<FormField> {
     }
 
     try {
-//DISPATCHES THE LOGIN EVENT
+/// DISPATCHES THE LOGIN EVENT
   context.read<AuthBloc>().add(FetchLoginUser(
     email,
     pass));

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../reusable_widgets/text.dart';
 
-//MAIN SINGLE VEHICLE DETAIL
+/// MAIN SINGLE VEHICLE DETAIL
 class SingleVehicleDetailsScreen extends StatefulWidget {
   const SingleVehicleDetailsScreen({super.key});
 
@@ -55,7 +55,7 @@ class _SingleVehicleDetailsScreenState extends State<SingleVehicleDetailsScreen>
   }
 }
 
-//SEGMENTED CONTROL LOGIC
+/// SEGMENTED CONTROL LOGIC
 class SegmentedControlScreen extends StatefulWidget {
   const SegmentedControlScreen({super.key});
 
@@ -142,7 +142,7 @@ class _SegmentedControlScreenState extends State<SegmentedControlScreen> {
   }
 }
 
-//SEGMENT FOR DETAIL
+/// SEGMENT FOR DETAIL
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
 
