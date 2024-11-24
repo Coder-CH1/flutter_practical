@@ -3,13 +3,13 @@ import 'package:assessment/auth_manager/auth_constant.dart';
 import 'package:assessment/auth_manager/model.dart';
 import 'package:http/http.dart' as http;
 
-//AUTHENTICATION IMPLEMENTATIONS
+/// AUTHENTICATION IMPLEMENTATIONS
 class AuthManager {
   late final http.Client client;
 
   AuthManager(this.client);
 
-  //LOGIN
+  /// LOGIN
   Future<Welcome> login(String email, String password) async{
     final response = await client.post(
       Uri.parse('${ApiConstant.baseUrl}user/login'),
@@ -24,7 +24,7 @@ class AuthManager {
     }
   }
 
-  //SIGNUP
+  /// SIGNUP
   Future<Welcome> signup(String firstName, String lastName, String phoneNumber, String email, String password, String dob) async {
     final response = await client.post(
       Uri.parse('${ApiConstant.baseUrl}user/register'),
